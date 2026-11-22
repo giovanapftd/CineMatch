@@ -534,3 +534,252 @@ main {
         transition-duration: .01ms !important;
     }
 }
+
+
+
+
+
+
+/* Catálogo em Destaque */
+.catalogo-inicio {
+    padding: 55px 24px 90px;
+
+    scroll-margin-top: 88px;
+}
+
+.cabecalho-catalogo,
+.cabecalho-grupo {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+
+    gap: 24px;
+}
+
+.cabecalho-catalogo {
+    border-bottom: 1px solid var(--cor-borda);
+
+    margin-bottom: 44px;
+    padding-bottom: 25px;
+}
+
+.etiqueta-catalogo {
+    font-size: .78rem;
+    font-weight: 700;
+
+    color: var(--cor-destaque-secundario);
+    letter-spacing: .13em;
+    text-transform: uppercase;
+
+    margin-bottom: 9px;
+}
+
+.titulo-catalogo {
+    font-family: var(--fonte-principal), Georgia, serif;
+    font-size: clamp(2.1rem, 4vw, 3.3rem);
+    font-weight: 500;
+
+    color: var(--cor-texto);
+}
+
+.texto-catalogo {
+    font-size: .95rem;    
+    
+    color: var(--cor-texto-suave);
+    line-height: 1.65;
+
+    max-width: 360px;
+}
+
+.grupo-catalogo + .grupo-catalogo {
+    margin-top: 48px;
+}
+
+.cabecalho-grupo {
+    margin-bottom: 18px;
+}
+
+.titulo-grupo {
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    color: var(--cor-texto);
+}
+
+.link-ver-todos {
+    font-size: .9rem;
+    font-weight: 600;
+
+    color: var(--cor-destaque-secundario);
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 9px;
+}
+
+.link-ver-todos:hover,
+.link-ver-todos:focus-visible {
+    color: var(--cor-texto);
+
+    outline: none;
+}
+
+.grade-catalogo {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.card-catalogo {
+    background: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    transition: border-color .2s ease, transform .2s ease;
+}
+
+.card-catalogo:hover {
+    border-color: rgba(245, 197, 24, .5);
+
+    transform: translateY(-4px);
+}
+
+.poster-catalogo {
+    background: linear-gradient(145deg, #272b38, #101116 70%);
+
+    color: var(--cor-texto);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 390px;
+    min-height: 0;
+
+    padding: 0;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.poster-catalogo::before {
+    content: none;
+}
+
+.poster-catalogo img {
+    display: block;
+    object-fit: contain;
+
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.poster-catalogo strong {
+    color: var(--cor-destaque-secundario);
+}
+
+.info-card {
+    padding: 16px 17px 19px;
+}
+
+.detalhe-card {
+    font-size: .75rem;
+    font-weight: 700;
+
+    color: var(--cor-destaque-secundario);
+
+    margin-bottom: 9px;
+}
+
+.detalhe-card span {
+    color: var(--cor-texto-suave);
+
+    padding: 0 5px;
+}
+
+.info-card h4 {
+    font-size: 1.08rem;
+
+    color: var(--cor-texto);
+
+    margin-bottom: 8px;
+}
+
+.info-card > p:last-child {
+    font-size: .86rem;
+
+    color: var(--cor-texto-suave);
+    line-height: 1.55;
+}
+
+.credito-imagens {
+    font-size: .78rem;
+
+    color: var(--cor-texto-suave);
+    line-height: 1.6;
+    text-align: center;
+
+    margin-top: 28px;
+}
+
+.credito-imagens a {
+    color: var(--cor-texto);
+    text-underline-offset: 3px;
+}
+
+.credito-imagens a:hover,
+.credito-imagens a:focus-visible {
+    color: var(--cor-destaque-secundario);
+}
+
+
+
+@media (max-width: 760px) {
+    .catalogo-inicio {
+        padding: 35px 8px 60px;
+    }
+
+    .cabecalho-catalogo {
+        align-items: start;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+
+    .grade-catalogo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    .poster-catalogo {
+        height: 340px;
+    }
+
+    .info-card {
+        padding: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grade-catalogo {
+        grid-template-columns: 1fr;
+    }
+
+    .poster-catalogo {
+        height: 390px;
+    }
+
+    .cabecalho-grupo {
+        align-items: center;
+    }
+}

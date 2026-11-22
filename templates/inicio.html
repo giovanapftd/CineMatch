@@ -88,6 +88,72 @@
             </div>
         </section>
 
+
+
+        <!-- Destaques do Catálogo -->
+        <section class="catalogo-inicio" id="catalogo" aria-labelledby="titulo-catalogo">
+            <div class="cabecalho-catalogo">
+                <div>
+                    <p class="etiqueta-catalogo">Escolhas para dar o play</p>
+                    <h2 class="titulo-catalogo" id="titulo-catalogo">Explore o catálogo</h2>
+                </div>
+
+                <p class="texto-catalogo">Filmes e séries para diferentes gostos e momentos.</p>
+            </div>
+
+            <section class="grupo-catalogo" aria-labelledby="titulo-filmes-destaque">
+                <div class="cabecalho-grupo">
+                    <h3 class="titulo-grupo" id="titulo-filmes-destaque">Filmes em destaque</h3>
+
+                    <a class="link-ver-todos" href="filmes.html">Ver todos <span aria-hidden="true">&#8594;</span></a>
+                </div>
+
+                <div class="grade-catalogo">
+
+                    {% for filme in filmes_destaque %}
+                    <article class="card-catalogo">
+                        <div class="poster-catalogo">
+                            <img src="{{ filme.poster }}" alt="Pôster do filme {{ filme.titulo }}" loading="lazy" decoding="async">
+                        </div>
+
+                        <div class="info-card">
+                            <p class="detalhe-card">{{ filme.genero }} <span>•</span> {{ filme.duracao }} min</p>
+                            <h4>{{ filme.titulo }}</h4>
+                            <p>{{ filme.resumo }}</p>
+                        </div>
+
+                    </article>
+
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="grupo-catalogo" aria-labelledby="titulo-series-destaque">
+                <div class="cabecalho-grupo">
+                    <h3 class="titulo-grupo" id="titulo-series-destaque">Séries em destaque</h3>
+                    <a class="link-ver-todos" href="series.html">Ver todas <span aria-hidden="true">&#8594;</span></a>
+                </div>
+
+                <div class="grade-catalogo">
+
+                    {% for serie in series_destaque %}
+                    <article class="card-catalogo">
+                        <div class="poster-catalogo">
+                            <img src="{{ serie.poster }}" alt="Pôster da série {{ serie.titulo }}" loading="lazy" decoding="async">
+                        </div>
+
+                        <div class="info-card">
+                            <p class="detalhe-card">{{ serie.genero }} <span>•</span> {{ serie.episodios }} episódios</p>
+                            <h4>{{ serie.titulo }}</h4>
+                            <p>{{ serie.resumo }}</p>
+                        </div>
+                    </article>
+
+                    {% endfor %}
+                </div>
+            </section>
+
+        </section>
     </main>
 
 </body>
