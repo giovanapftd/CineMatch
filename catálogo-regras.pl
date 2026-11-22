@@ -1251,3 +1251,29 @@ catalogo_serie(ripley, 'Ripley', thriller_psicologico, 8,
                 'Tom Ripley assume identidades e se aproxima de um herdeiro americano na Itália.').
 catalogo_serie(the_sinner, 'The Sinner', thriller_psicologico, 32,
                 'Uma detetive busca entender por que pessoas comuns cometem crimes violentos.').
+
+
+
+
+
+% -=-=-=- Regras -=-=-=-
+
+% Retorna filmes do gênero escolhido.
+% Para filmes, o sexto argumento é duração do filme em min.
+do_genero(Genero, Id, Titulo, filme, Duracao, 0, Resumo) :-
+    catalogo_filme(Id, Titulo, Genero, Duracao, Resumo).
+
+% Retorna séries do gênero escolhido.
+% Para séries, duração não é armazenada; é sexto argumento é o número de episódios.
+do_genero(Genero, Id, Titulo, serie, 0, Episodios, Resumo) :-
+    catalogo_serie(Id, Titulo, Genero, Episodios, Resumo).
+
+% Recomenda filmes, aonde não passa do tempo escolhido, apenas aproximados em min.
+filme_ate(Genero, Minutos, Id, Titulo, Duracao, Resumo) :-
+    catalogo_filme(Id, Titulo, Genero, Duracao, Resumo),
+    Duracao =< Minutos.
+
+% Recomenda séries, com a quantidade de episódios escolhidos ou aproximados.
+serie_com_minimo(Genero, MinEpisodios, Id, Titulo, Episodios, Resumo) :-
+    catalogo_serie(Id, Titulo, Genero, Episodios, Resumo),
+    Episodios >= MinEpisodios.
