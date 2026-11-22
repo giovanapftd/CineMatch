@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: Blacker Shield;
+    src: url(../font/BlackerShield-Personal-Use-Only.ttf) format(truetype);
+}
+
+:root {
+    /* Cores do site */
+    --cor-fundo: #0D0E12;
+    --cor-destaque-primário: #E50914;
+    --cor-destaque-secundario: #F5C518;
+
+    /* Cores do texto */
+    --cor-texto: #F4F4F6;
+    --cor-texto-suave: #A5A7B0;
+
+    /* Cores dos cards e bordas */
+    --cor-card: #181A20;
+    --cor-borda: rgba(244, 244, 246, .10);
+
+    /* Fontes */
+    --fonte-principal: 'Blacker Shield';
+}
+
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: var(--cor-texto);
+
+    background-color: var(--cor-fundo);
+
+    height: 100vh;
+    margin: 0;
+}
+
+
+
+
+
+/* Barra de Navegação */
+header {
+    background: rgba(13, 14, 18, .96);
+    border-bottom: 1px solid var(--cor-borda);
+
+    backdrop-filter: blur(12px);
+
+    position: sticky;
+
+    top: 0;
+    z-index: 10;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 28px;
+
+    width: min(1200px, calc(100% - 40px));
+    height: 76px;
+
+    margin: 0 auto;
+}
+
+header > div > a {
+    font-family: var(--fonte-principal);
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    color: var(--cor-texto);
+    letter-spacing: .07em;
+
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.palavra-destaque {
+    color: var(--cor-destaque-primário);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+nav li {
+    position: relative;
+}
+
+nav li > a {
+    font-size: .95rem;
+
+    border-radius: 9px;
+
+    color: var(--cor-texto-suave);
+    text-decoration: none;
+
+    display: block;
+
+    padding: 11px 13px;
+
+    transition: background-color .18s ease, color .18s ease;
+}
+
+nav li > a:hover,
+nav li > a:focus-visible {
+    background: rgba(244, 244, 246, .08);
+
+    color: var(--cor-texto);
+
+    outline: none;
+}
+
+
+
+
+
+/* Menu Gêneros */
+.genre-trigger {
+    font: inherit;
+    font-size: .95rem;
+
+    background: transparent;
+    border: 0;
+    border-radius: 9px;
+
+    color: var(--cor-texto-suave);
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 11px 13px;
+    
+    cursor: pointer;
+
+    transition: background-color .18s ease, color .18s ease;
+}
+
+.genre-trigger:hover,
+.genre-trigger:focus-visible,
+.botao-genero:hover .genre-trigger {
+    background: rgba(244, 244, 246, .08);
+
+    color: var(--cor-texto);
+
+    outline: none;
+}
+
+.chevron {
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+
+    width: 8px;
+    height: 8px;
+
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform .18s ease;
+}
+
+.botao-genero:hover .chevron,
+.botao-genero:focus-within .chevron {
+    transform: translateY(2px) rotate(225deg);
+}
+
+
+
+/* Menu Gênero (SUSPENSO)*/
+.menu-genero {
+    background: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .45);
+
+
+    display: none;
+    width: 240px;
+    max-height: 350px;
+
+    padding: 8px;
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+    right: 0;
+
+    overflow-y: auto;
+}
+
+.botao-genero:hover .menu-genero,
+.botao-genero:focus-within .menu-genero {
+    display: block;
+}
+
+.opcao-genero {
+    font: inherit; 
+
+    background: transparent;
+    border: 0;
+    border-radius: 7px;
+
+    color: var(--cor-texto);
+    text-align: left;
+
+    display: block;
+
+    width: 100%;
+
+    padding: 10px 12px;
+
+    cursor: pointer;
+
+    transition: background-color .18s ease, color .18s ease;
+}
+
+.opcao-genero:hover,
+.opcao-genero:focus-visible {
+    background: rgba(229, 9, 20, .16);
+
+    color: var(--cor-texto);
+
+    outline: none;
+}
+
+@media (max-width: 760px) {
+    header > div {
+        width: min(100% - 24px, 1200px);
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 18px;
+        padding: 12px 0;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2px;
+    }
+
+    nav li > a,
+    .genre-trigger {
+        padding: 9px 8px;
+        font-size: .85rem;
+    }
+
+    .menu-genero {
+        right: 0;
+        width: min(240px, calc(100vw - 24px));
+    }
+}
